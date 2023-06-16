@@ -30,9 +30,6 @@ Route::get('/accueil', function () {
     return view('accueile');
 });
 
-Route::get('/admin', function () {
-    return view('admin');
-});
 
 Route::get('/register',  [registerController::class, 'register'])->name('vu');
 
@@ -45,5 +42,3 @@ Route::post('/choixvaccin', [VaccinationController::class, 'store']);
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-Route::post('/login', [LoginController::class, 'login'])->name('home');

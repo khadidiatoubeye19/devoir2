@@ -5,6 +5,7 @@ use Spatie\Permission\Models\Role as SpatieRole;
 use App\Models\patient;
 use Spatie\Permission\Models\Role;
 use App\Models\user;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -21,11 +22,11 @@ class RegisterController extends Controller
     $name = $request->input('name');
     $prenom = $request->input('prenom');
     $email = $request->input('email');
-    $password  = $request->input('password');
+    $password  =  bcrypt($request->input('password'));
     $telephone = $request->input('telephone');
     $datenaissance = $request->input('datenaissance');
 
-
+    //$password = bcrypt($request['password']);
     $user= new User();
     $user->name = $name;
 
@@ -80,5 +81,23 @@ class RegisterController extends Controller
         $patient->update();
         return redirect('');
       }
+      public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+        //if (Auth::guard('web')->attempt($credentials)) {
+            if (Auth::attempt($credentials)) {
+
+                $request->session()->regenerate();
+
+                return 'bonsoir';
+            }
+
+        //  else {
+        //     return 'bonjour';
+        // }
+    }
 
 }
