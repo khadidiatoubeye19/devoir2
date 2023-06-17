@@ -18,10 +18,8 @@ return new class extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('email');
-            $table->string('modepasse');
             $table->string('telephone');
-            $table->date('datenaissance');
-            $table->date('nomcentre');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

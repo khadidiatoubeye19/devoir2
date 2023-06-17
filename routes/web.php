@@ -29,9 +29,12 @@ Route::get('/choixvaccin', function () {
 Route::get('/accueil', function () {
     return view('accueile');
 });
+Route::get('/admin', function () {
+    return view('admin');
+});
 
 
-Route::get('/register',  [registerController::class, 'register'])->name('vu');
+Route::get('/registerpatient',  [registerController::class, 'register'])->name('vu');
 
 
 Route::post('/registerpatient',  [registerController::class, 'addPatient']);

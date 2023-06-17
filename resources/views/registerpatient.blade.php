@@ -66,11 +66,11 @@
 <body>
     <div class="container">
         <h1>Enregistrer un patient</h1>
-        <form action="register" method="POST">
+        <form action="registerpatient" method="POST">
             @csrf
             <div class="form-group">
                 <label for="nom">Nom</label>
-                <input type="text" id="nom" name="nom" required>
+                <input type="text" id="nom" name="name" required>
             </div>
             <div class="form-group">
                 <label for="prenom">Prénom</label>
@@ -82,7 +82,7 @@
             </div>
             <div class="form-group">
                 <label for="telephone">Mot de passe</label>
-                <input type="text" id="motdepasse" name="motdepasse" required>
+                <input type="text" id="motdepasse" name="password" required>
             </div>
             <div class="form-group">
                 <label for="telephone">Date de naissance</label>

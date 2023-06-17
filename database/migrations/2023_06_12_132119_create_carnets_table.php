@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignId('vaccin_id')->constrained();
             $table->foreignId('medecin_id')->constrained();
             $table->foreignId('patient_id')->constrained();
-            $table->dateTime('rvsuivant');
             $table->timestamps();
         });
     }

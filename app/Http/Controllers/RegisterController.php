@@ -15,40 +15,44 @@ class RegisterController extends Controller
 
         return view('registerpatient');
       }
+
       public function addPatient(Request $request)
-{
+      {
 
 
-    $name = $request->input('name');
-    $prenom = $request->input('prenom');
-    $email = $request->input('email');
-    $password  =  bcrypt($request->input('password'));
-    $telephone = $request->input('telephone');
-    $datenaissance = $request->input('datenaissance');
+          $name = $request->input('name');
+          $prenom = $request->input('prenom');
+          $email = $request->input('email');
+          $password  =bcrypt($request->input('password'));
+          $telephone = $request->input('telephone');
+          $datenaissance = $request->input('datenaissance');
 
-    //$password = bcrypt($request['password']);
-    $user= new User();
-    $user->name = $name;
+          //$password = bcrypt($request['password']);
+          $user= new User();
+          $user->name = $name;
 
-    $user->email = $email;
-    $user->password = $password;
-    $role = Role::where('name', 'user')->first();
-    $user->assignRole($role);
-    $patient = new Patient();
-    $patient->nom = $name;
-    $patient->prenom = $prenom;
-    $patient->email = $email;
-    $patient->modepasse = $password ;
-    $patient->telephone = $telephone;
-    $patient->datenaissance = $datenaissance;
+          $user->email = $email;
+          $user->password = $password;
+          $role = Role::where('name', 'user')->first();
+          $user->assignRole($role);
+          $patient = new Patient();
+          $patient->nom = $name;
+          $patient->prenom = $prenom;
+          $patient->email = $email;
+        ;
+          $patient->telephone = $telephone;
 
-    // Enregistrer le patient dans la base de données
-    $user->save();
-    $patient->save();
+          $user->role = "patient";
+          $patient->datenaissance = $datenaissance;
 
-    // Redirection vers une autre page ou affichage d'un message de succès
-    return redirect()->route('home')->with('success', 'Patient ajouté avec succès');
-}
+          // Enregistrer le patient dans la base de données
+          $user->save();
+          $patient->user_id = $user->id;
+          $patient->save();
+
+          // Redirection vers une autre page ou affichage d'un message de succès
+          return redirect()->route('home')->with('success', 'Patient ajouté avec succès');
+      }
 
 
       public function enregistrer(Request $request){

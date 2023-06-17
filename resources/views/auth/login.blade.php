@@ -1,5 +1,5 @@
-@extends('layouts.app')
-{{--
+{{-- @extends('layouts.app')
+
 <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 @section('content')
  <div class="container">
@@ -75,10 +75,10 @@
  --}}
 
 
-{{--
+
 <!DOCTYPE html>
 <html lang="en">
-<head> --}}
+<head> 
 	<meta charset="utf-8" />
 	<title>Color Admin | Login Page</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
