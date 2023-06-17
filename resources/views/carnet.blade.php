@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+@include('welcome')
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -58,20 +59,24 @@
         <h1>Carnet de Vaccination</h1>
 
         <ul class="vaccine-list">
+            @if ($vaccinations)
+            @foreach ($vaccinations as $vaccination)
+
             <li class="vaccine-item">
-                <h3>Vaccin A</h3>
-                <p>Date: 01/01/2022</p>
+                <h3>{{$vaccination->vaccin->nomvaccin}}</h3>
+                <p>{{$vaccination->date}}</p>
                 <p>Lieu: Centre de vaccination XYZ</p>
             </li>
-            <li class="vaccine-item">
-                <h3>Vaccin B</h3>
-                <p>Date: 15/02/2022</p>
-                <p>Lieu: Centre de vaccination ABC</p>
-            </li>
+            @endforeach
+
+
+        @else
+                 <center ><p>aucun vaccination fait</p></center>
+        @endif
             <!-- Ajoutez d'autres vaccins ici -->
         </ul>
         <div class="add-vaccine-btn">
-            <button type="button"><a href="choixvaccin">Ajouter une vaccination</a></button>
+            <a href="choixvaccin"><button type="button">Ajouter une vaccination</button></a>
         </div>
     </div>
 </body>
@@ -80,14 +85,6 @@
 
 
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carnet de vaccination - Patient</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         /* Styles CSS personnalisés */
 
@@ -151,34 +148,3 @@
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Carnet de vaccination - Patient</h1>
-
-        <div class="vaccine-card">
-            <h3>Vaccin A</h3>
-            <p>Date : 01/06/2023</p>
-            <p>Dose : 1</p>
-            <p>Lot : Lot 1234</p>
-        </div>
-
-        <div class="vaccine-card">
-            <h3>Vaccin B</h3>
-            <p>Date : 15/07/2023</p>
-            <p>Dose : 2</p>
-            <p>Lot : Lot 5678</p>
-        </div>
-
-        <!-- Ajouter plus de cartes pour chaque vaccination -->
-
-        <div class="add-vaccine-btn">
-            <button type="button">Ajouter une vaccination</button>
-        </div>
-    </div>
-</body>
-</html>
-
-
-
-
-

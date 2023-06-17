@@ -89,6 +89,15 @@
                 <input type="date" id="datenaiss" name="datenaissance" required>
             </div>
             <div class="form-group">
+                <label for="">medecin</label>
+                <select name="medecin_id" id="">
+                    @foreach ($medecin as $med)
+                    <option value="{{$med->id}}">{{$med->nom}}</option>
+                    @endforeach
+                </select>
+
+            </div>
+            <div class="form-group">
                 <label for="telephone">Téléphone</label>
                 <input type="text" id="telephone" name="telephone" required>
             </div>

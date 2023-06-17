@@ -4,13 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\Medecin;
 use App\Models\user;
+use App\Models\patient;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class MedecinController extends Controller
 {
-    public function register(){
+    public function homemedecin(){
+        $connectedDoctor = Auth::user();
 
-        return view('registermedecin');
+        // Vérifier que l'utilisateur est bien un médecin
+        //if ($connectedDoctor && $connectedDoctor->role == 'docteur') {
+            // Récupérer les patients liés au médecin connecté
+            $patients = Patient::where('user_id', $connectedDoctor->id)->get();
+
+
+        //}
+        return view('medecin',compact('patients'));
       }
       public function addmedecin(Request $request)
 {

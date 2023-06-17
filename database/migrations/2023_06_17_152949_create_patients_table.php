@@ -11,6 +11,10 @@ return new class extends Migration
      *
      * @return void
      */
+
+
+
+
     public function up()
     {
         Schema::create('patients', function (Blueprint $table) {
@@ -21,6 +25,7 @@ return new class extends Migration
             $table->string('telephone');
             $table->date('datenaissance');
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('medecin_id')->constrained();
             $table->timestamps();
         });
     }

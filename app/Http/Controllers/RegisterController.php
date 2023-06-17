@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\medecin;
 use Spatie\Permission\Models\Role as SpatieRole;
 use App\Models\patient;
 use Spatie\Permission\Models\Role;
@@ -12,8 +14,8 @@ use Illuminate\Http\Request;
 class RegisterController extends Controller
 {
     public function register(){
-
-        return view('registerpatient');
+     $medecin=medecin::all();
+        return view('registerpatient',compact('medecin'));
       }
 
       public function addPatient(Request $request)
@@ -25,6 +27,7 @@ class RegisterController extends Controller
           $email = $request->input('email');
           $password  =bcrypt($request->input('password'));
           $telephone = $request->input('telephone');
+          $medecin_id = $request->input('medecin_id');
           $datenaissance = $request->input('datenaissance');
 
           //$password = bcrypt($request['password']);
@@ -39,9 +42,8 @@ class RegisterController extends Controller
           $patient->nom = $name;
           $patient->prenom = $prenom;
           $patient->email = $email;
-        ;
+          $patient->medecin_id =$medecin_id;
           $patient->telephone = $telephone;
-
           $user->role = "patient";
           $patient->datenaissance = $datenaissance;
 

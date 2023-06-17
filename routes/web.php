@@ -17,9 +17,6 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/carnet', function () {
-    return view('carnet');
-});
 
 
 Route::get('/choixvaccin', function () {
@@ -33,10 +30,9 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
-
 Route::get('/registerpatient',  [registerController::class, 'register'])->name('vu');
 
-
+Route::get('/mede', [MedecinController::class, 'homemedecin']);
 Route::post('/registerpatient',  [registerController::class, 'addPatient']);
 //use App\Http\Controllers\VaccinationController;
 
@@ -45,3 +41,7 @@ Route::post('/choixvaccin', [VaccinationController::class, 'store']);
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/carnet', [CarnetController::class, 'vucarnet'])->name('carnet');
+
+
