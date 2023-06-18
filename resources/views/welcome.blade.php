@@ -1,6 +1,6 @@
 
 <meta charset="utf-8">
-<title>DentCare - Dental Clinic Website Template</title>
+<title>DListe des vaccination</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="Free HTML Templates" name="keywords">
 <meta content="Free HTML Templates" name="description">
@@ -69,11 +69,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0">
-            <a href="index.html" class="nav-item nav-link active">Home</a>
-          @auth
+            <a href="/accueil" class="nav-item nav-link active">Home</a>
+            @if (Auth::user()->role == "patient")
   <a href="carnet" class="nav-item nav-link">Mon Carnet</a>
-            @endauth
+  @endif
+  @if (Auth::user()->role == "medecin")
             <a href="choixvaccin" class="nav-item nav-link">Je veux me vaccine</a>
+            <a href="listepatient" class="nav-item nav-link">Mes patient</a>
+            <a href="listevaccination" class="nav-item nav-link">vaccination</a>
+            <a href="listevaccin" class="nav-item nav-link">vaccin</a>
+@endif
+
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                 <div class="dropdown-menu m-0">
@@ -88,6 +94,33 @@
         </div>
         <button type="button" class="btn text-dark" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
         {{-- <a href="appointment.html" class="btn btn-primary py-2 px-4 ms-3">Appointment</a> --}}
-        <li>  <button type="button" class="btn btn-info btn-lg" ><a href="login">SE CONNECTER </a></button></li>
+        @guest
+        <li>  <button  class="btn btn-info btn-lg" ><a href="/login">SE CONNECTER </a></button></li>
+        @endguest
+        @auth
+    <form action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button type="submit">Déconnexion</button>
+    </form>
+@endauth
+
     </div>
 </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,6 +17,7 @@ class VaccinationController extends Controller
 
     public function store(Request $request)
     {
+        if (Auth::check()) {
         $data = $request->validate([
             'date' => 'required|date',
             'vaccin_id' => 'required|exists:vaccins,id',
@@ -26,7 +27,7 @@ class VaccinationController extends Controller
         $connectedUser = Auth::user();
         $connectedPatientId = $connectedUser->patient->id;
 
-        $connectedDoctorId = $connectedUser->medecin->id;
+        $connectedDoctorId = $connectedUser->patient->medecin_id;
         $vaccination = new Vaccination();
         $vaccination->date = $request->date;
         $vaccination->vaccin_id = $request->vaccin_id;
@@ -34,11 +35,30 @@ class VaccinationController extends Controller
         $vaccination->medecin_id =$connectedDoctorId;
         $vaccination->status= 0;
         $vaccination->heure = $request->heure;
+
         $vaccination->save();
+
+
 //dd(  $connectedPatientId);
         return redirect('accueil')->with('success', 'vaccination ajouté avec succès');
+    }
+else
+
+        return redirect()->route('login');
 
     }
+    public function liste(){
+
+        $connectedMedecin = Auth::user()->medecin;
+
+        if ($connectedMedecin) {
+            $vaccinations = $connectedMedecin->vaccinations()->where('status', 1)->get();
+        }
+        else
+        $vaccinations=0;
+           return view('listevaccination',compact('vaccinations'));
+         }
+
 }
 
 

@@ -22,7 +22,7 @@ public function medecin()
 }
 public function patient()
 {
-    return $this->hasOne(Patient::class);
+    return $this->hasOne(Patient::class,'user_id');
 }
 
 

@@ -4,52 +4,55 @@ namespace App\Http\Controllers;
 
 use App\Models\Medecin;
 use App\Models\user;
+use App\Models\vaccination;
+use App\Models\vaccin;
 use App\Models\patient;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\returnSelf;
+
 class MedecinController extends Controller
 {
     public function homemedecin(){
-        $connectedDoctor = Auth::user();
+        $connectedMedecin = Auth::user()->medecin;
 
-        // Vérifier que l'utilisateur est bien un médecin
-        //if ($connectedDoctor && $connectedDoctor->role == 'docteur') {
-            // Récupérer les patients liés au médecin connecté
-            $patients = Patient::where('user_id', $connectedDoctor->id)->get();
-
-
-        //}
-        return view('medecin',compact('patients'));
+    if ($connectedMedecin) {
+        $vaccinations = $connectedMedecin->vaccinations()->where('status', 0)->get();
+    }
+    else
+    $vaccinations=0;
+        return view('medecin',compact('vaccinations'));
       }
       public function addmedecin(Request $request)
 {
     $nom = $request->input('nom');
     $prenom = $request->input('prenom');
     $email = $request->input('email');
-    $nomcentre = $request->input('nomcentre');
+    //$nomcentre = $request->input('nomcentre');
     $modepasse = $request->input('motdepasse');
     $telephone = $request->input('telephone');
-    $datenaissance = $request->input('datenaissance');
+    //$datenaissance = $request->input('datenaissance');
 
     $medecin = new Medecin();
     $user= new User();
     $user->name = $nom;
 
     $user->email = $email;
-    $user->password = $modepasse;
-
+    $user->password = bcrypt($modepasse);
+    $user->role = "medecin";
     $medecin->nom = $nom;
     $medecin->prenom = $prenom;
     $medecin->email = $email;
-    $medecin->modepasse = $modepasse;
+    // $medecin->modepasse = $modepasse;
     $medecin->telephone = $telephone;
-    $medecin-> nomcentre= $nomcentre;
-    $medecin->datenaissance = $datenaissance;
+    //$medecin-> nomcentre= $nomcentre;
+    //$medecin->datenaissance = $datenaissance;
 
 
     // Enregistrer le medecin dans la base de données
     $user->save();
+    $medecin->user_id = $user->id;
     $medecin->save();
 
     // Redirection vers une autre page ou affichage d'un message de succès
@@ -87,5 +90,30 @@ class MedecinController extends Controller
         $medecin->update();
         return redirect('');
       }
+
+
+      public function listepatient()
+{
+        $connectedDoctor = Auth::user();
+        $patients = Patient::where('user_id', $connectedDoctor->id)->get();
+        $vaccin =Vaccin::all();
+        $medecin =medecin::all();
+        return view('listepatient',compact('vaccin','medecin','patients'));
+}
+public function confirmerVaccination($id)
+{
+    $vaccination = Vaccination::findOrFail($id);
+    $vaccination->status = 1;
+    $vaccination->save();
+
+    return redirect()->route('carnet')->with('success', 'Statut de la vaccination mis à jour avec succès');
+}
+
+public function show(Patient $patient)
+{
+    // Récupérer les vaccinations du patient
+    $vaccinations = $patient->vaccinations()->where('status', 1)->get();;
+    return view('carnet', compact('vaccinations'));
+}
 
 }

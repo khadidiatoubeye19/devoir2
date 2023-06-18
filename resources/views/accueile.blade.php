@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
+@include('welcome')
 <head>
     <meta charset="utf-8">
-    <title>DentCare - Dental Clinic Website Template</title>
+    <title>vaccin </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -76,7 +76,7 @@
 
 
     <!-- Topbar Start -->
-    <div class="container-fluid bg-light ps-5 pe-0 d-none d-lg-block">
+    {{-- <div class="container-fluid bg-light ps-5 pe-0 d-none d-lg-block">
         <div class="row gx-0">
             <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center">
@@ -94,14 +94,14 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Topbar End -->
 
 
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
+    {{-- <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
         <a href="index.html" class="navbar-brand p-0">
-            <h1 class="m-0 text-primary"><i class="fa fa-tooth me-2"></i>DentCare</h1>
+            <h1 class="m-0 text-primary"><i class="fa fa-tooth me-2"></i>APPvaccination</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -111,10 +111,10 @@
                 <a href="index.html" class="nav-item nav-link active">Home</a>
               @auth
  <a href="carnet" class="nav-item nav-link">Mon Carnet</a>
-                @endauth
+                @endauth --}}
 
 
-
+{{--
                 <a href="choixvaccin" class="nav-item nav-link">Je veux me vaccine</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -130,9 +130,9 @@
             </div>
             <button type="button" class="btn text-dark" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
             {{-- <a href="appointment.html" class="btn btn-primary py-2 px-4 ms-3">Appointment</a> --}}
-            <li>  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">SE CONNECTER</button></li>
+            {{-- <li>  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">SE CONNECTER</button></li>
         </div>
-    </nav>
+    </nav> --}}
     <!-- Navbar End -->
 
 

@@ -1,10 +1,10 @@
-{{--
+@include('welcome')
 
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>Color Admin | Login Page</title>
+	<title>Color Admin | Managed Tables - RowReorder</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -13,8 +13,14 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="../assets/css/default/app.min.css" rel="stylesheet" />
 	<!-- ================== END BASE CSS STYLE ================== -->
+
+	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+	<link href="../assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+	<link href="../assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+	<link href="../assets/plugins/datatables.net-rowreorder-bs4/css/rowReorder.bootstrap4.min.css" rel="stylesheet" />
+	<!-- ================== END PAGE LEVEL STYLE ================== -->
 </head>
-<body class="pace-top">
+<body>
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade show">
 		<span class="spinner"></span>
@@ -22,52 +28,64 @@
 	<!-- end #page-loader -->
 
 	<!-- begin #page-container -->
-	<div id="page-container" class="fade">
-		<!-- begin login -->
-		<div class="login login-v1">
-			<!-- begin login-container -->
-			<div class="login-container">
-				<!-- begin login-header -->
-				<div class="login-header">
-					<div class="brand">
-						<span class="logo"></span> <b>Color</b> Admin
-						<small>responsive bootstrap 4 admin template</small>
+	<div id="page-container" class="fade in page-sidebar-fixed page-header-fixed">
+		<!-- begin #header -->
+
+
+		<!-- begin #content -->
+		<div id="content" class="content">
+			<!-- begin breadcrumb -->
+
+			<div class="row">
+
+				<div class="col-xl-10">
+					<!-- begin panel -->
+					<div class="panel panel-inverse">
+						<!-- begin panel-heading -->
+
+						<!-- end panel-heading -->
+						<!-- begin alert -->
+
+						<!-- end alert -->
+						<!-- begin panel-body -->
+						<div class="panel-body">
+							<table id="data-table-rowreorder" class="table table-striped table-bordered table-td-valign-middle">
+								<thead>
+									<tr>
+										<th width="1%"></th>
+										<th width="1%" data-orderable="false"></th>
+										<th class="text-nowrap">Nom</th>
+										<th class="text-nowrap">Prenom</th>
+										<th class="text-nowrap">Age</th>
+										<th class="text-nowrap">Telephone</th>
+										<th class="text-nowrap">CSS grade</th>
+									</tr>
+								</thead>
+								<tbody>
+                                    @foreach (  $patients as $patient )
+									<tr class="odd gradeX">
+										<td width="1%" class="f-w-600 text-inverse">1</td>
+										<td width="1%" class="with-img"><img src="../assets/img/user/user-1.jpg" class="img-rounded height-30" /></td>
+										<td>{{$patient->nom}} </td>
+										<td>{{$patient->prenom}}</td>
+										<td>{{$patient->datenaissance}}</td>
+										<td>{{$patient->telephone}}</td>
+										<td><a href="{{ route('carnet.show', $patient->id) }}">Voir le carnet de vaccination</a></td>
+									</tr>
+                                    @endforeach
+
+								</tbody>
+							</table>
+						</div>
+						<!-- end panel-body -->
 					</div>
-					<div class="icon">
-						<i class="fa fa-lock"></i>
-					</div>
+					<!-- end panel -->
 				</div>
-				<!-- end login-header -->
-				<!-- begin login-body -->
-				<div class="login-body">
-					<!-- begin login-content -->
-					<div class="login-content">
-						<form action="/connecte" method="post" class="margin-bottom-0">
-                            @csrf
-							<div class="form-group m-b-20">
-								<input type="text" name="email" class="form-control form-control-lg inverse-mode" placeholder="Email Address" required />
-							</div>
-							<div class="form-group m-b-20">
-								<input type="password" name="password" class="form-control form-control-lg inverse-mode" placeholder="Password" required />
-							</div>
-							<div class="checkbox checkbox-css m-b-20">
-								<input type="checkbox" id="remember_checkbox" />
-								<label for="remember_checkbox">
-								Remember Me
-								</label>
-							</div>
-							<div class="login-buttons">
-								<button type="submit" class="btn btn-success btn-block btn-lg">Sign me in</button>
-							</div>
-						</form>
-					</div>
-					<!-- end login-content -->
-				</div>
-				<!-- end login-body -->
+				<!-- end col-10 -->
 			</div>
-			<!-- end login-container -->
+			<!-- end row -->
 		</div>
-		<!-- end login -->
+		<!-- end #content -->
 
 		<!-- begin theme-panel -->
 		<div class="theme-panel theme-panel-lg">
@@ -232,40 +250,15 @@
 	<script src="../assets/js/app.min.js"></script>
 	<script src="../assets/js/theme/default.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
-</body>
-</html> --}}
 
-<form action="/addmedecin" method="POST">
-    @csrf
-    <div>
-        <label for="nom">Nom:</label>
-        <input type="text" name="nom" id="nom" required>
-    </div>
-    <div>
-        <label for="prenom">Prénom:</label>
-        <input type="text" name="prenom" id="prenom" required>
-    </div>
-    <div>
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required>
-    </div>
-    {{-- <div>
-        <label for="nomcentre">Nom du centre:</label>
-        <input type="text" name="nomcentre" id="nomcentre" required>
-    </div> --}}
-    <div>
-        <label for="motdepasse">Mot de passe:</label>
-        <input type="password" name="motdepasse" id="motdepasse" required>
-    </div>
-    <div>
-        <label for="telephone">Téléphone:</label>
-        <input type="text" name="telephone" id="telephone" required>
-    </div>
-    {{-- <div>
-        <label for="datenaissance">Date de naissance:</label>
-        <input type="date" name="datenaissance" id="datenaissance" required>
-    </div> --}}
-    <div>
-        <button type="submit">Ajouter</button>
-    </div>
-</form>
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="../assets/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script src="../assets/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+	<script src="../assets/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="../assets/plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+	<script src="../assets/plugins/datatables.net-rowreorder/js/dataTables.rowReorder.min.js"></script>
+	<script src="../assets/plugins/datatables.net-rowreorder-bs4/js/rowReorder.bootstrap4.min.js"></script>
+	<script src="../assets/js/demo/table-manage-rowreorder.demo.js"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+</body>
+</html>

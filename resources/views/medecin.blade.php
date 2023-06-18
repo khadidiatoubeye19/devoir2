@@ -111,37 +111,17 @@
 						</div>
 						<!-- begin result-list -->
 						<ul class="result-list">
-							<li>
-								<a href="#" class="result-image" style="background-image: url(../assets/img/gallery/gallery-53.jpg)"></a>
-								<div class="result-info">
-									<h4 class="title"><a href="javascript:;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
-									<p class="location">United State, BY 10089</p>
-									<p class="desc">
-										Nunc et ornare ligula. Aenean commodo lectus turpis, eu laoreet risus lobortis quis. Suspendisse vehicula mollis magna vel aliquet. Donec ac tempor neque, convallis euismod mauris. Integer dictum dictum ipsum quis viverra.
-									</p>
-									<div class="btn-row">
-										<a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Analytics"><i class="fa fa-fw fa-chart-bar"></i></a>
-										<a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Tasks"><i class="fa fa-fw fa-tasks"></i></a>
-										<a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Configuration"><i class="fa fa-fw fa-cog"></i></a>
-										<a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Performance"><i class="fa fa-fw fa-tachometer-alt"></i></a>
-										<a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Users"><i class="fa fa-fw fa-user"></i></a>
-									</div>
-								</div>
-								<div class="result-price">
-									$183,921 <small>PER MONTH</small>
-									<a href="javascript:;" class="btn btn-yellow btn-block">View Details</a>
-								</div>
-							</li>
-                          @foreach (  $patients as $patient )
+                            @if ($vaccinations && $vaccinations->count() > 0)
+                          @foreach (  $vaccinations as $vaccination )
 
 							<li>
-								<a href="#" class="result-image" style="background-image: url(../assets/img/gallery/gallery-55.jpg)"></a>
+								{{-- <a href="#" class="result-image" style="background-image: url(../assets/img/gallery/gallery-55.jpg)"></a> --}}
 								<div class="result-info">
-									<h4 class="title">{{$patient->nom}}</h4>
-									<p class="location">United State, BY 10089</p>
-									<p class="desc">
-										Nunc et ornare ligula. Aenean commodo lectus turpis, eu laoreet risus lobortis quis. Suspendisse vehicula mollis magna vel aliquet. Donec ac tempor neque, convallis euismod mauris. Integer dictum dictum ipsum quis viverra.
-									</p>
+									<h1 >nom patient:{{$vaccination->patient->nom}} {{$vaccination->patient->prenom}} </h1>
+									<h2 class="location">pour le vaccinde:  {{$vaccination->vaccin->nomvaccin}}</h2>
+									<h2 class="desc">
+                                  date:{{$vaccination->date}}
+                                    </h2>
 									<div class="btn-row">
 										<a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Analytics"><i class="fa fa-fw fa-chart-bar"></i></a>
 										<a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Tasks"><i class="fa fa-fw fa-tasks"></i></a>
@@ -151,11 +131,17 @@
 									</div>
 								</div>
 								<div class="result-price">
-									$422,999 <small>PER MONTH</small>
-									<a href="javascript:;" class="btn btn-yellow btn-block">View Details</a>
+                                    <form action="{{ route('confirmerVaccination', ['id' => $vaccination->id]) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+
+									<button class="btn btn-yellow btn-block">confirmer</button>
+
+                                </form>
 								</div>
 							</li>
                             @endforeach
+                            @endif
 						</ul>
 						<!-- end result-list -->
 						<!-- begin pagination -->

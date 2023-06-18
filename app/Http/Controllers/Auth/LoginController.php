@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Request;
+//use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     /*
@@ -39,17 +42,30 @@ class LoginController extends Controller
     }
 
 
-    protected function authenticated(Request $request, $user)
+//     protected function authenticated(Request $request, $user)
+// {
+//     if ($user->role=="patient") {
+//         return redirect('/accueil');
+// // } else
+// //      if ($user->role=="medecin") {
+// //         return redirect('/accueil');
+// //      } else{
+// //         return redirect('/carnet');
+//     }
+// }
+
+
+protected function authenticated(Request $request, $user)
 {
-    if ($user->role=="patient") {
+    if ($user->role == "patient") {
         return redirect('/accueil');
-    } else
-     if ($user->role=="medecin") {
+    } elseif ($user->role == "medecin") {
         return redirect('/mede');
-     } else{
+    } else {
         return redirect('/carnet');
     }
 }
+
 
 }
 

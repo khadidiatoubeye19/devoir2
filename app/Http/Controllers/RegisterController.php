@@ -105,5 +105,16 @@ class RegisterController extends Controller
         //     return 'bonjour';
         // }
     }
+    public function logout(Request $request)
+{
+    Auth::logout();
+
+    $request->session()->invalidate();
+
+    $request->session()->regenerateToken();
+
+    return redirect('/login'); // Redirection vers la page d'accueil ou une autre page après la déconnexion
+}
+
 
 }

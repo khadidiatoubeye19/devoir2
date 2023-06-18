@@ -59,24 +59,22 @@
         <h1>Carnet de Vaccination</h1>
 
         <ul class="vaccine-list">
-            @if ($vaccinations)
-            @foreach ($vaccinations as $vaccination)
-
-            <li class="vaccine-item">
-                <h3>{{$vaccination->vaccin->nomvaccin}}</h3>
-                <p>{{$vaccination->date}}</p>
-                <p>Lieu: Centre de vaccination XYZ</p>
-            </li>
-            @endforeach
-
-
-        @else
-                 <center ><p>aucun vaccination fait</p></center>
-        @endif
-            <!-- Ajoutez d'autres vaccins ici -->
+            @if ($vaccinations && $vaccinations->count() > 0)
+                @foreach ($vaccinations as $vaccination)
+                    <li class="vaccine-item">
+                        <h3>{{ $vaccination->vaccin->nomvaccin }}</h3>
+                        <p>{{ $vaccination->date }}</p>
+                        <p>Lieu: Centre de vaccination XYZ</p>
+                    </li>
+                @endforeach
+            @else
+                <center><p>Aucune vaccination effectuée</p></center>
+            @endif
         </ul>
+        @if (Auth::user()->role == "patient")
         <div class="add-vaccine-btn">
             <a href="choixvaccin"><button type="button">Ajouter une vaccination</button></a>
+            @endif
         </div>
     </div>
 </body>

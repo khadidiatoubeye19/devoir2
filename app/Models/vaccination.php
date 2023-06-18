@@ -13,13 +13,18 @@ class vaccination extends Model
         return $this->belongsTo(Vaccin::class);
     }
 
-    public function patient()
-    {
-        return $this->belongsTo(Patient::class);
-    }
+    // public function patient()
+    // {
+    //     return $this->belongsTo(Patient::class);
+    // }
 
     public function medecin()
     {
         return $this->belongsTo(Medecin::class);
     }
+    public function patient()
+{
+    return $this->belongsTo(Patient::class, 'patient_id');
+}
+
 }
