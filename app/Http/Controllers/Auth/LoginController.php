@@ -58,11 +58,11 @@ class LoginController extends Controller
 protected function authenticated(Request $request, $user)
 {
     if ($user->role == "patient") {
-        return redirect('/accueil');
+        return redirect('/');
     } elseif ($user->role == "medecin") {
         return redirect('/mede');
     } else {
-        return redirect('/carnet');
+        return redirect('/admin');
     }
 }
 

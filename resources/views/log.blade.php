@@ -269,3 +269,4 @@
         <button type="submit">Ajouter</button>
     </div>
 </form>
+{{$errors->first('erreur') }}

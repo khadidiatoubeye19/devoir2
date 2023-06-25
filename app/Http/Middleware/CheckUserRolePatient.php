@@ -22,6 +22,6 @@ class CheckUserRolePatient
     }
 
     // L'utilisateur n'a pas le rôle d'admin, rediriger ou renvoyer une réponse d'erreur
-    return redirect('/')->with('error', 'Accès non autorisé');
+    return redirect('/erreur')->with('error', 'Accès non autorisé');
 }
 }

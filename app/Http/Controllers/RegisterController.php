@@ -53,7 +53,7 @@ class RegisterController extends Controller
           $patient->save();
 
           // Redirection vers une autre page ou affichage d'un message de succès
-          return redirect()->route('home')->with('success', 'Patient ajouté avec succès');
+          return redirect('/login')->with('success', 'Patient ajouté avec succès');
       }
 
 

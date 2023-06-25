@@ -164,7 +164,7 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h5 class="text-white text-uppercase mb-3 animated slideInDown">Keep Your Teeth Healthy</h5>
-                            <h1 class="display-1 text-white mb-md-4 animated zoomIn">Take The Best Quality Dental Treatment</h1>
+                            <h1 class="display-1 text-white mb-md-4 animated zoomIn">La vaccination est un moyen sûr et efficace de renforcervotre immunité contre les maladies</h1>
                             <a href="appointment.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Appointment</a>
                             <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Contact Us</a>
                         </div>
@@ -174,8 +174,8 @@
                     <img class="w-100" src="img/carousel-2.jpg" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Keep Your Teeth Healthy</h5>
-                            <h1 class="display-1 text-white mb-md-4 animated zoomIn">Take The Best Quality Dental Treatment</h1>
+                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">.  </h5>
+                            <h1 class="display-1 text-white mb-md-4 animated zoomIn">Protégez-vous et les autres en vous faisant vacciner</h1>
                             <a href="appointment.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Appointment</a>
                             <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Contact Us</a>
                         </div>
@@ -253,12 +253,13 @@
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-7">
+
                     <div class="section-title mb-4">
                         <h5 class="position-relative d-inline-block text-primary text-uppercase">About Us</h5>
-                        <h1 class="display-5 mb-0">The World's Best Dental Clinic That You Can Trust</h1>
+                        <h1 class="display-5 mb-0"> N'attendez plus, prenez votre santé en main et faites-vous vacciner.</h1>
                     </div>
-                    <h4 class="text-body fst-italic mb-4">Diam dolor diam ipsum sit. Clita erat ipsum et lorem stet no lorem sit clita duo justo magna dolore</h4>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
+                    <h4 class="text-body fst-italic mb-4"> La vaccination est un acte responsable qui offre une protection contre les maladies infectieuses, vous permettant ainsi de vivre une vie plus saine et de contribuer à la construction d'une communauté résiliente et protégée.</h4>
+                    <p class="mb-4">assurant ainsi notre santé et contribuant à la lutte contre la propagation des maladies</p>
                     <div class="row g-3">
                         <div class="col-sm-6 wow zoomIn" data-wow-delay="0.3s">
                             <h5 class="mb-3"><i class="fa fa-check-circle text-primary me-3"></i>Award Winning</h5>
@@ -273,7 +274,7 @@
                 </div>
                 <div class="col-lg-5" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="img/about.jpg" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="pexels-photo-3952224.webp" style="object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -288,11 +289,11 @@
             <div class="row gx-5">
                 <div class="col-lg-6 py-5">
                     <div class="py-5">
-                        <h1 class="display-5 text-white mb-4">We Are A Certified and Award Winning Dental Clinic You Can Trust</h1>
-                        <p class="text-white mb-0">Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd ipsum. Dolor ea et dolore et at sea ea at dolor, justo ipsum duo rebum sea invidunt voluptua. Eos vero eos vero ea et dolore eirmod et. Dolores diam duo invidunt lorem. Elitr ut dolores magna sit. Sea dolore sanctus sed et. Takimata takimata sanctus sed.</p>
+                        <h1 class="display-5 text-white mb-4">"Prenez une décision éclairée pour votre santé et celle de vos proches :</h1>
+                        <p class="text-white mb-0"> choisissez de vous faire vacciner.</p>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                {{-- <div class="col-lg-6">
                     <div class="appointment-form h-100 d-flex flex-column justify-content-center text-center p-5 wow zoomIn" data-wow-delay="0.6s">
                         <h1 class="text-white mb-4">Make Appointment</h1>
                         <form>
@@ -339,7 +340,7 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -351,20 +352,20 @@
         <div class="container">
             <div class="row g-5 mb-5">
                 <div class="col-lg-5 wow zoomIn" data-wow-delay="0.3s" style="min-height: 400px;">
-                    <div class="twentytwenty-container position-relative h-100 rounded overflow-hidden">
-                        <img class="position-absolute w-100 h-100" src="img/before.jpg" style="object-fit: cover;">
-                        <img class="position-absolute w-100 h-100" src="img/after.jpg" style="object-fit: cover;">
-                    </div>
+                    {{-- <div class="twentytwenty-container position-relative h-100 rounded overflow-hidden"> --}}
+                        <img class="position-absolute w-100 h-100" src="pexels-photo-3936421.jpeg">
+                        {{-- <img class="position-absolute w-100 h-100" src="img/after.jpg" style="object-fit: cover;"> --}}
+                    {{-- </div> --}}
                 </div>
                 <div class="col-lg-7">
                     <div class="section-title mb-5">
                         <h5 class="position-relative d-inline-block text-primary text-uppercase">Our Services</h5>
-                        <h1 class="display-5 mb-0">We Offer The Best Quality Dental Services</h1>
+                        <h1 class="display-5 mb-0"> La vaccination est une mesure proactive qui renforce votre système immunitaire</h1>
                     </div>
                     <div class="row g-5">
                         <div class="col-md-6 service-item wow zoomIn" data-wow-delay="0.6s">
                             <div class="rounded-top overflow-hidden">
-                                <img class="img-fluid" src="img/service-1.jpg" alt="">
+                                <img class="img-fluid" src="pexels-photo-3786119.jpeg" alt="">
                             </div>
                             <div class="position-relative bg-light rounded-bottom text-center p-4">
                                 <h5 class="m-0">Cosmetic Dentistry</h5>
@@ -372,7 +373,7 @@
                         </div>
                         <div class="col-md-6 service-item wow zoomIn" data-wow-delay="0.9s">
                             <div class="rounded-top overflow-hidden">
-                                <img class="img-fluid" src="img/service-2.jpg" alt="">
+                                <img class="img-fluid" src="pexels-photo-3786215.jpeg" alt="">
                             </div>
                             <div class="position-relative bg-light rounded-bottom text-center p-4">
                                 <h5 class="m-0">Dental Implants</h5>
@@ -386,7 +387,7 @@
                     <div class="row g-5">
                         <div class="col-md-6 service-item wow zoomIn" data-wow-delay="0.3s">
                             <div class="rounded-top overflow-hidden">
-                                <img class="img-fluid" src="img/service-3.jpg" alt="">
+                                <img class="img-fluid" src="pexels-photo-5863365.webp" alt="">
                             </div>
                             <div class="position-relative bg-light rounded-bottom text-center p-4">
                                 <h5 class="m-0">Dental Bridges</h5>
@@ -394,7 +395,7 @@
                         </div>
                         <div class="col-md-6 service-item wow zoomIn" data-wow-delay="0.6s">
                             <div class="rounded-top overflow-hidden">
-                                <img class="img-fluid" src="img/service-4.jpg" alt="">
+                                <img class="img-fluid" src="pexels-photo-6290571.webp" alt="">
                             </div>
                             <div class="position-relative bg-light rounded-bottom text-center p-4">
                                 <h5 class="m-0">Teeth Whitening</h5>
@@ -406,7 +407,7 @@
                     <div class="position-relative bg-primary rounded h-100 d-flex flex-column align-items-center justify-content-center text-center p-4">
                         <h3 class="text-white mb-3">Make Appointment</h3>
                         <p class="text-white mb-3">Clita ipsum magna kasd rebum at ipsum amet dolor justo dolor est magna stet eirmod</p>
-                        <h2 class="text-white mb-0">+012 345 6789</h2>
+                        <h2 class="text-white mb-0">+221339476545</h2>
                     </div>
                 </div>
             </div>
@@ -421,8 +422,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7 wow zoomIn" data-wow-delay="0.6s">
                     <div class="offer-text text-center rounded p-5">
-                        <h1 class="display-5 text-white">Save 30% On Your First Dental Checkup</h1>
-                        <p class="text-white mb-4">Eirmod sed tempor lorem ut dolores sit kasd ipsum. Dolor ea et dolore et at sea ea at dolor justo ipsum duo rebum sea. Eos vero eos vero ea et dolore eirmod diam duo lorem magna sit dolore sed et.</p>
+                        <h1 class="display-5 text-white">Ensemble, nous pouvons construire un avenir plus sain</h1>
+                        <p class="text-white mb-4"> et plus sûr grâce à la vaccination..</p>
                         <a href="appointment.html" class="btn btn-dark py-3 px-5 me-3">Appointment</a>
                         <a href="" class="btn btn-light py-3 px-5">Read More</a>
                     </div>
@@ -440,9 +441,9 @@
                 <div class="col-lg-5">
                     <div class="section-title mb-4">
                         <h5 class="position-relative d-inline-block text-primary text-uppercase">Pricing Plan</h5>
-                        <h1 class="display-5 mb-0">We Offer Fair Prices for Dental Treatment</h1>
+                        <h1 class="display-5 mb-0"> réduit les risques de maladies et favorise le bien-être général</h1>
                     </div>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo eirmod magna dolore erat amet</p>
+                    <p class="mb-4"></p>
                     <h5 class="text-uppercase text-primary wow fadeInUp" data-wow-delay="0.3s">Call for Appointment</h5>
                     <h1 class="wow fadeInUp" data-wow-delay="0.6s">+012 345 6789</h1>
                 </div>
@@ -450,7 +451,7 @@
                     <div class="owl-carousel price-carousel wow zoomIn" data-wow-delay="0.9s">
                         <div class="price-item pb-4">
                             <div class="position-relative">
-                                <img class="img-fluid rounded-top" src="img/price-1.jpg" alt="">
+                                <img class="img-fluid rounded-top" src="pexels-photo-3992933.jpeg" alt="">
                                 <div class="d-flex align-items-center justify-content-center bg-light rounded pt-2 px-3 position-absolute top-100 start-50 translate-middle" style="z-index: 2;">
                                     <h2 class="text-primary m-0">$35</h2>
                                 </div>
@@ -466,7 +467,7 @@
                         </div>
                         <div class="price-item pb-4">
                             <div class="position-relative">
-                                <img class="img-fluid rounded-top" src="img/price-2.jpg" alt="">
+                                <img class="img-fluid rounded-top" src="pexels-photo-3992933.jpeg" alt="">
                                 <div class="d-flex align-items-center justify-content-center bg-light rounded pt-2 px-3 position-absolute top-100 start-50 translate-middle" style="z-index: 2;">
                                     <h2 class="text-primary m-0">$49</h2>
                                 </div>
@@ -484,7 +485,7 @@
                             <div class="position-relative">
                                 <img class="img-fluid rounded-top" src="img/price-3.jpg" alt="">
                                 <div class="d-flex align-items-center justify-content-center bg-light rounded pt-2 px-3 position-absolute top-100 start-50 translate-middle" style="z-index: 2;">
-                                    <h2 class="text-primary m-0">$99</h2>
+                                    <h2 class="text-primary m-0"></h2>
                                 </div>
                             </div>
                             <div class="position-relative text-center bg-light border-bottom border-primary py-5 p-4">
@@ -537,7 +538,7 @@
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.1s">
                     <div class="section-title bg-light rounded h-100 p-5">
                         <h5 class="position-relative d-inline-block text-primary text-uppercase">Our Dentist</h5>
-                        <h1 class="display-6 mb-4">Meet Our Certified & Experienced Dentist</h1>
+                        <h1 class="display-6 mb-4"> Nos Medecin</h1>
                         <a href="appointment.html" class="btn btn-primary py-3 px-5">Appointment</a>
                     </div>
                 </div>

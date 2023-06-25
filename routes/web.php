@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 
-Route::get('/', function () {
+Route::get('/log', function () {
     return view('log');
 });
 
@@ -26,14 +26,14 @@ Route::get('/', function () {
 //     return view('choixvaccin');
 // });
 
-Route::get('/accueil', function () {
+Route::get('/', function () {
     return view('accueile');
 });
 Route::get('/admin', function () {
     return view('admin');
 });
 
-Route::get('/registerpatient',  [registerController::class, 'register'])->name('vu')->middleware('checkUserRolePatient');
+Route::get('/registerpatient',  [registerController::class, 'register'])->name('vu');
 
 Route::get('/mede', [MedecinController::class, 'homemedecin'])->middleware('checkUserRoleMedecin');
 Route::post('/registerpatient',  [registerController::class, 'addPatient']);
@@ -52,6 +52,6 @@ Route::get('/listepatient', [MedecinController::class, 'listepatient'])->middlew
 
 Route::put('/vaccination/{id}/confirmer',[MedecinController::class,'confirmerVaccination'])->name('confirmerVaccination');
 
-Route::get('/carnet/{patient}', [MedecinController::class, 'show'])->name('carnet.show')->middleware('checkUserRoleMatient');
-Route::get('/logout',[RegisterController::class, 'logout'])->name('logout');
-route::get('/listevaccination', [VaccinationController::class, 'liste']);
+Route::get('/carnet/{patient}', [MedecinController::class, 'show'])->name('carnet.show')->middleware('checkUserRoleMedecin');
+Route::post('/logoute',[RegisterController::class, 'logout'])->name('logout');
+route::get('/listevaccination', [VaccinationController::class, 'liste'])->middleware('checkUserRoleMedecin');

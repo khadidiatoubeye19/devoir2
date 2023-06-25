@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\VaccinationConfirmation;
 
 use App\Models\Medecin;
 use App\Models\user;
 use App\Models\vaccination;
 use App\Models\vaccin;
+
 use App\Models\patient;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -94,19 +97,20 @@ class MedecinController extends Controller
 
       public function listepatient()
 {
-        $connectedDoctor = Auth::user();
-        $patients = Patient::where('user_id', $connectedDoctor->id)->get();
-        $vaccin =Vaccin::all();
-        $medecin =medecin::all();
-        return view('listepatient',compact('vaccin','medecin','patients'));
+        $connectedDoctor = Auth::user()->medecin->id;
+        $patients = Patient::where('medecin_id', $connectedDoctor)->get();
+        // $vaccin =Vaccin::all();
+        // $medecin =medecin::all();
+        return view('listepatient',compact('patients'));
 }
 public function confirmerVaccination($id)
 {
     $vaccination = Vaccination::findOrFail($id);
     $vaccination->status = 1;
     $vaccination->save();
-
-    return redirect()->route('carnet')->with('success', 'Statut de la vaccination mis à jour avec succès');
+    //Mail::send(new VaccinationConfirmation($data));
+   // Mail::to($vaccination->patient->email)->send(new VaccinationConfirmation($vaccination));
+    return redirect('mede')->with('success', 'Statut de la vaccination mis à jour avec succès');
 }
 
 public function show(Patient $patient)

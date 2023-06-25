@@ -39,8 +39,9 @@ class VaccinationController extends Controller
         $vaccination->save();
 
 
+
 //dd(  $connectedPatientId);
-        return redirect('accueil')->with('success', 'vaccination ajouté avec succès');
+        return redirect('/')->with('success', 'vaccination ajouté avec succès');
     }
 else
 
@@ -58,6 +59,9 @@ else
         $vaccinations=0;
            return view('listevaccination',compact('vaccinations'));
          }
+
+         
+
 
 }
 

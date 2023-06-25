@@ -22,8 +22,8 @@ class CheckUserRole
             return $next($request);
         }
 
-        // L'utilisateur n'a pas le rôle d'admin, rediriger ou renvoyer une réponse d'erreur
-        return redirect('/')->with('error', 'Accès non autorisé');
+        // L'utilisateur n'a pa le rôle d'admin, rediriger ou renvoyer une réponse d'erreur
+        return redirect('/erreur')->with('error', 'Accès non autorisé');
     }
 
 }

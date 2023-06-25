@@ -1,6 +1,6 @@
 
 <meta charset="utf-8">
-<title>DListe des vaccination</title>
+<title>Liste des vaccination</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="Free HTML Templates" name="keywords">
 <meta content="Free HTML Templates" name="description">
@@ -69,26 +69,26 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0">
-            <a href="/accueil" class="nav-item nav-link active">Home</a>
-            @if (Auth::user()->role == "patient")
+
+
+
+            <a href="/" class="nav-item nav-link active">Home</a>
+            <a href="choixvaccin" class="nav-item nav-link">Je veux me vaccine</a>
+            @auth
+           @if (Auth::user()->role == "patient")
   <a href="carnet" class="nav-item nav-link">Mon Carnet</a>
+
   @endif
   @if (Auth::user()->role == "medecin")
-            <a href="choixvaccin" class="nav-item nav-link">Je veux me vaccine</a>
+
             <a href="listepatient" class="nav-item nav-link">Mes patient</a>
             <a href="listevaccination" class="nav-item nav-link">vaccination</a>
             <a href="listevaccin" class="nav-item nav-link">vaccin</a>
 @endif
-
+@endauth
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                <div class="dropdown-menu m-0">
-                    <a href="price.html" class="dropdown-item">Pricing Plan</a>
-                    <a href="team.html" class="dropdown-item">Our Dentist</a>
-                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">SE CONNECTER</button>
-                    <a href="appointment.html" class="dropdown-item">Appointment</a>
-                </div>
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">News</a>
+
             </div>
             <a href="contact.html" class="nav-item nav-link">Contact</a>
         </div>
@@ -98,9 +98,9 @@
         <li>  <button  class="btn btn-info btn-lg" ><a href="/login">SE CONNECTER </a></button></li>
         @endguest
         @auth
-    <form action="{{ route('logout') }}" method="POST">
+    <form action="/logoute" method="POST">
         @csrf
-        <button type="submit">Déconnexion</button>
+        <button  class="btn btn-info btn-lg" type="submit">Déconnexion</button>
     </form>
 @endauth
 

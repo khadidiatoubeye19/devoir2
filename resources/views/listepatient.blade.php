@@ -58,7 +58,7 @@
 										<th class="text-nowrap">Prenom</th>
 										<th class="text-nowrap">Age</th>
 										<th class="text-nowrap">Telephone</th>
-										<th class="text-nowrap">CSS grade</th>
+										<th class="text-nowrap"></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -70,7 +70,7 @@
 										<td>{{$patient->prenom}}</td>
 										<td>{{$patient->datenaissance}}</td>
 										<td>{{$patient->telephone}}</td>
-										<td><a href="{{ route('carnet.show', $patient->id) }}">Voir le carnet de vaccination</a></td>
+										<td><a  class="btn btn-info btn-lg"{{ route('carnet.show', $patient->id) }}">carnet de vaccination</a></td>
 									</tr>
                                     @endforeach
 
@@ -88,6 +88,7 @@
 		<!-- end #content -->
 
 		<!-- begin theme-panel -->
+
 		<div class="theme-panel theme-panel-lg">
 			<a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
 			<div class="theme-panel-content">

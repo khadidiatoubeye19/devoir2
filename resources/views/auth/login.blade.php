@@ -106,8 +106,8 @@
 				<!-- begin login-header -->
 				<div class="login-header">
 					<div class="brand">
-						<span class="logo"></span> <b>Color</b> Admin
-						<small>responsive bootstrap 4 admin template</small>
+						<span class="logo"></span> <b>Appvaccin</b> login
+						<small> </small>
 					</div>
 					<div class="icon">
 						<i class="fa fa-lock"></i>
@@ -136,6 +136,7 @@
 								<button type="submit" class="btn btn-success btn-block btn-lg">Sign me in</button>
 							</div>
 						</form>
+                        <a href="registerpatient"><p>register </p></a>
 					</div>
 					<!-- end login-content -->
 				</div>
