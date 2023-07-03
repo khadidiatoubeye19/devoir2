@@ -144,7 +144,13 @@
 </head>
 <body>
     @php
+    if (Auth::user()->role=='patient') {
+
+
     $dateNaissance = new DateTime(Auth::user()->patient->datenaissance);
+}else {
+    $dateNaissance = new DateTime( $patient->datenaissance);
+}
     $date = date('d-m-y h:i:s');
     $age = $dateNaissance->diff(new DateTime())->format('%y');
     @endphp
@@ -152,20 +158,25 @@
         <center>
             <h1>Carnet de Vaccination</h1>
         </center>
-
-            <p>Nom: {{ Auth::user()->patient->prenom }} {{ Auth::user()->patient->nom }}</p>
-            {{-- <p>Date de naissance: {{ $dateNaissance->format('d-m-Y') }}</p> --}}
+        @if (Auth::user()->role=='patient')
+             <p>Nom: {{ Auth::user()->patient->prenom }} {{ Auth::user()->patient->nom }}</p>
+             <p>Date de naissance: {{ $dateNaissance->format('d-m-Y') }}</p>
             <p>Âge: {{ $age }} ans</p>
             <p>Téléphone: {{ Auth::user()->patient->telephone }}</p>
-
-
+        
+        @endif
+    @if (Auth::user()->role=='medecin') 
+    <p>Nom: {{ $patient->nom }}</p>
+    <p>Âge: {{ $age }} ans</p>
+    <p>Téléphone: {{ $patient->telephone }}</p>
+     @endif
         <ul class="vaccine-list">
             @if ($vaccinations && $vaccinations->count() > 0)
                 @foreach ($vaccinations as $vaccination)
                     <li class="vaccine-item">
-                        <h3>{{ $vaccination->vaccin->nomvaccin }}</h3>
-                        <p>{{ $vaccination->date }}</p>
-                        <p>Lieu: Centre de vaccination XYZ</p>
+                        <h3>vaccin: {{ $vaccination->vaccin->nomvaccin }}</h3>
+                        <p>Date: {{ $vaccination->date }}</p>
+                        <p>medecin: {{ $vaccination->medecin->nom}}</p>
                     </li>
                 @endforeach
             @else

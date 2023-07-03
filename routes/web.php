@@ -33,6 +33,13 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
+Route::get('/listevaccin', function () {
+    return view('listevaccin');
+});
+
+Route::resource('vaccins', VaccinsController::class);
+Route::resource('medecins', MedecinsController::class);
+Route::get('dashbord',[DashBordController::class,'index'])->name('dashbord');
 Route::get('/registerpatient',  [registerController::class, 'register'])->name('vu');
 
 Route::get('/mede', [MedecinController::class, 'homemedecin'])->middleware('checkUserRoleMedecin');
@@ -55,3 +62,9 @@ Route::put('/vaccination/{id}/confirmer',[MedecinController::class,'confirmerVac
 Route::get('/carnet/{patient}', [MedecinController::class, 'show'])->name('carnet.show')->middleware('checkUserRoleMedecin');
 Route::post('/logoute',[RegisterController::class, 'logout'])->name('logout');
 route::get('/listevaccination', [VaccinationController::class, 'liste'])->middleware('checkUserRoleMedecin');
+Route::resource('admins', AdminsController::class)->middleware('checkUserRole');
+route::get('/listevaccin', [VaccinationController::class, 'listevaccin'])->middleware('checkUserRoleMedecin');
+Route::get('/updatepassword', function () {
+    return view('medecins.updatepassword');
+});
+Route::post('/updateDoctorPassword',[MedecinController::class,'updateDoctorPassword'])->name('updateDoctorPassword');

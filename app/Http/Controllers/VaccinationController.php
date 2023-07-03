@@ -59,8 +59,13 @@ else
         $vaccinations=0;
            return view('listevaccination',compact('vaccinations'));
          }
+         public function listevaccin(){
 
-         
+            $vaccins = Vaccin::all();
+               return view('listevaccin',compact('vaccins'));
+             }
+
+
 
 
 }

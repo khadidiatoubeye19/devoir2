@@ -82,7 +82,7 @@
             </div>
             <div class="form-group">
                 <label for="telephone">Mot de passe</label>
-                <input type="text" id="motdepasse" name="password" required>
+                <input type="password" id="motdepasse" name="password" required>
             </div>
             <div class="form-group">
                 <label for="telephone">Date de naissance</label>
@@ -101,6 +101,15 @@
                 <label for="telephone">Téléphone</label>
                 <input type="text" id="telephone" name="telephone" required>
             </div>
+            <div class="form-group">
+                <label for="">Sexe</label>
+                <select name="sexe" id="">
+
+                    <option value="feminim">feminim</option>
+                    <option value="feminim">masculin</option>
+
+                </select>
+
             <div class="form-group">
                 <label for="adresse">Adresse</label>
                 <input type="text" id="adresse" name="adresse" required>

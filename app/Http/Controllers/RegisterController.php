@@ -28,6 +28,7 @@ class RegisterController extends Controller
           $password  =bcrypt($request->input('password'));
           $telephone = $request->input('telephone');
           $medecin_id = $request->input('medecin_id');
+          $sexe = $request->input('sexe');
           $datenaissance = $request->input('datenaissance');
 
           //$password = bcrypt($request['password']);
@@ -43,6 +44,7 @@ class RegisterController extends Controller
           $patient->prenom = $prenom;
           $patient->email = $email;
           $patient->medecin_id =$medecin_id;
+          $patient->sexe =$sexe;
           $patient->telephone = $telephone;
           $user->role = "patient";
           $patient->datenaissance = $datenaissance;

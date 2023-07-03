@@ -70,7 +70,9 @@
 										<td>{{$patient->prenom}}</td>
 										<td>{{$patient->datenaissance}}</td>
 										<td>{{$patient->telephone}}</td>
-										<td><a  class="btn btn-info btn-lg"{{ route('carnet.show', $patient->id) }}">carnet de vaccination</a></td>
+										<td>
+                                            <a  class="btn btn-info btn-lg" href=" {{ route('carnet.show', $patient->id) }}">carnet de vaccination</a>
+                                        </td>
 									</tr>
                                     @endforeach
 

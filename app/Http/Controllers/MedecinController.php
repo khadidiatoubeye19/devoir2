@@ -116,8 +116,27 @@ public function confirmerVaccination($id)
 public function show(Patient $patient)
 {
     // Récupérer les vaccinations du patient
+    //$patients = Patient::find($patient);
     $vaccinations = $patient->vaccinations()->where('status', 1)->get();;
-    return view('carnet', compact('vaccinations'));
+    return view('carnet', compact('vaccinations','patient'));
 }
+
+public function updateDoctorPassword(Request $request)
+{
+    // Valider les données de formulaire
+
+    // Mettre à jour le mot de passe du médecin
+    $user = Auth::user();
+    $user->password = bcrypt($request->new_password);
+
+    User::where('id', $user->id)
+        ->update([
+            'password' => $user->password,
+            'first_login' => false
+        ]);
+    // Rediriger le médecin vers une page appropriée
+    return redirect('/mede')->with('success', 'Votre mot de passe a été mis à jour.');
+}
+
 
 }

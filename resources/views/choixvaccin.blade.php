@@ -49,7 +49,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="appointment-form h-100 d-flex flex-column justify-content-center text-center p-5 wow zoomIn" data-wow-delay="0.6s">
-                        <h1 class="text-white mb-4">prendre un vaccinp</h1>
+                        <h1 class="text-white mb-4">Prendre un Vaccin</h1>
                         <form action="choixvaccin" method="post">
                             @csrf
                             <div class="row g-3">

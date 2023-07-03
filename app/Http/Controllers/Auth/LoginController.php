@@ -55,17 +55,39 @@ class LoginController extends Controller
 // }
 
 
+// protected function authenticated(Request $request, $user)
+// {
+//     if ($user->role == "patient") {
+//         return redirect('/');
+//     } elseif ($user->role == "medecin") {
+//         return redirect('/mede');
+//     } else {
+//         return redirect('/admin');
+//     }
+// }
+
+
+
 protected function authenticated(Request $request, $user)
 {
     if ($user->role == "patient") {
         return redirect('/');
-    } elseif ($user->role == "medecin") {
-        return redirect('/mede');
-    } else {
-        return redirect('/admin');
+    } else if ($user->role == "medecin") {
+        $medecin = User::find($user->id);
+        if ($medecin->first_login == 1) {
+            return redirect('/updatepassword');
+        }
+        else {
+            return redirect('/mede');
+        }
+    } else if($user->role == "admin") {
+        return redirect('/dashbord');
+    }
+    else {
+        return back()->withErrors([
+            'login' => 'Identifiant ou mot de passe incorrect.',
+        ]);
     }
 }
-
-
 }
 

@@ -73,7 +73,7 @@
 
 
             <a href="/" class="nav-item nav-link active">Home</a>
-            <a href="choixvaccin" class="nav-item nav-link">Je veux me vaccine</a>
+           {{-- // <a href="choixvaccin" class="nav-item nav-link">Je veux me vaccine</a> --}}
             @auth
            @if (Auth::user()->role == "patient")
   <a href="carnet" class="nav-item nav-link">Mon Carnet</a>
@@ -84,13 +84,14 @@
             <a href="listepatient" class="nav-item nav-link">Mes patient</a>
             <a href="listevaccination" class="nav-item nav-link">vaccination</a>
             <a href="listevaccin" class="nav-item nav-link">vaccin</a>
+            <a href="mede" class="nav-item nav-link">demande</a>
 @endif
 @endauth
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">News</a>
+                <a href="news" class="nav-link dropdown-toggle" >News</a>
 
             </div>
-            <a href="contact.html" class="nav-item nav-link">Contact</a>
+            {{-- //<a href="contact.html" class="nav-item nav-link">Contact</a> --}}
         </div>
         <button type="button" class="btn text-dark" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
         {{-- <a href="appointment.html" class="btn btn-primary py-2 px-4 ms-3">Appointment</a> --}}
